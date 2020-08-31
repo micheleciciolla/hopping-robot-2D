@@ -8,7 +8,6 @@ function [] = drawRobot(foot,leg,body,hip)
 [ini_xH,ini_yH] = deal(hip(1),hip(2));
 
 
-
 figure(); hold on;
 % foot
 plot(ini_x0,ini_y0,'Color','black',"Marker","^",'LineWidth',3);
