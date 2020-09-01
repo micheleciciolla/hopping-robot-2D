@@ -1,4 +1,4 @@
-cd /home/mic-ciciolla/Documents/università/incompleted/elective/2_underactuated/hopping-robot-2D/
+% cd /home/mic-ciciolla/Documents/università/incompleted/elective/2_underactuated/hopping-robot-2D/
 
 %% One-Legged Hopping Robot
 % Parameters [m] and [kg]
