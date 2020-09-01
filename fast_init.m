@@ -82,7 +82,6 @@ foot = zeros(2,1);
 body = zeros(2,1);
 hip = zeros(2,1);
 
-
 foot(1,1) = ini_x0; foot(1,2) = ini_y0;
 leg(1,1) = ini_x1;
 leg(1,2) = ini_y1;
@@ -112,7 +111,7 @@ Ts = pi/omega_n; % this is used when calculating a full hopping cycle
 %% 
 % *SIMULINK*
 
-simtime = 20; %simulation time
+simtime = 30; %simulation time
 % Execution of the simulation in Simulink
 out=sim('model.slx',simtime); 
 %% 
@@ -214,22 +213,7 @@ legend("y2","yh","y1","y0-round","y0-pure")
 title("(1) : can we build y0 from y2?")
 
 xlim([-0.9 simtime+0.9])
-%%
 
-%----------------------------------------------------------------------
-% FIGURE 2 
-% difference y0 - y0_rebuilt
-% This is a plot of the difference between the real pure y0 and 
-% THE DIFFERENCE between my rounded y0 and the pure one.
-% i just use this to know how much i'm rouding out.
-
-figure()
-hold on, grid minor;
-plot(t,round(y0_r - state.y0_pure,5),"color",'red')
-plot(t,state.y0_pure,"color",'black')
-title("(2) difference between y0 pure and y0 rebuilt")
-legend("difference","y0-pure");
-xlim([-0.9 simtime+0.9])
 %%
 
 %----------------------------------------------------------------------
@@ -256,23 +240,7 @@ plot(t,state.y0_pure,"color",'black',"LineStyle",":","LineWidth",1)
 legend("rounded scaled y0","y0-pure")
 title("(3) : Scaling down the rounded signal when y0<0")
 xlim([-0.9 simtime+0.9])
-%%
 
-%----------------------------------------------------------------------
-% FIGURE 4
-% This was just used to have conferm that the problem is given by the
-% oscillation of w during jumps
-% Is it correct that w is negavite during touch down?
-
-figure()
-hold on
-grid minor
-plot(t,state.w,"color",[1,0.4,0.5])
-plot(t,state.y2,"color",'blue')
-
-title("(4) : w values during jumping")
-legend("w","y2");
-xlim([-0.9 simtime+0.9])
 %%
 
 %----------------------------------------------------------------------
