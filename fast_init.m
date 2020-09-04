@@ -144,44 +144,44 @@ state.theta2 = out.theta2.signals.values;
 state.yd = out.height_d;
 %% *Plotting stage*
 
-close all
+% close all
+% 
+% % plot ("Height/Acceleration of the foot - y0,y0d")
+% %----------------------------------------------------------------------
+% % FIGURE -1
+% % Here you have a comparison between state.y (height filtered) and 
+% % state.yd (velocity filtered) to better understand if they're consistent.
+% 
+% figure()
+% hold on, grid on
+% plot(t,state.y,"color",'blue')
+% plot(t,state.yd,"color",'red')
+% 
+% title("(-1) : Height/Acceleration of the foot - y0,y0d")
+% plot(0,ini_y0,"marker","*","MarkerSize",10,"Color","k")
+% plot(t,zeros(size(t)),"color","green")
+% xlabel("time")
+% ylabel("height")
+% xlim([-1,simtime+0.9])
+% legend("y0","y0d");
 
-% plot ("Height/Acceleration of the foot - y0,y0d")
-%----------------------------------------------------------------------
-% FIGURE -1
-% Here you have a comparison between state.y (height filtered) and 
-% state.yd (velocity filtered) to better understand if they're consistent.
 
-figure()
-hold on, grid on
-plot(t,state.y,"color",'blue')
-plot(t,state.yd,"color",'red')
-
-title("(-1) : Height/Acceleration of the foot - y0,y0d")
-plot(0,ini_y0,"marker","*","MarkerSize",10,"Color","k")
-plot(t,zeros(size(t)),"color","green")
-xlabel("time")
-ylabel("height")
-xlim([-1,simtime+0.9])
-legend("y0","y0d");
-
-
-%----------------------------------------------------------------------
-% plot ("comparison y0 filtered vs not filtered")
-% FIGURE 0
-% This is a comparison between state.y (height filtered) and 
-% state.y0_pure (height not filtered) to understand the amount of delay
-% given by the filtering stage in simulink.
-
-figure()
-hold on, grid on;
-plot(t,state.y,"color",'red')
-plot(t,state.y0_pure,"color",'blue')
-legend("y0 filtered","y0 pure");
-title("(0) : comparison y0 filtered vs not filtered")
-
-xlim([-0.9 simtime+0.9])
-ylim([-0.100 0.500])
+% %----------------------------------------------------------------------
+% % plot ("comparison y0 filtered vs not filtered")
+% % FIGURE 0
+% % This is a comparison between state.y (height filtered) and 
+% % state.y0_pure (height not filtered) to understand the amount of delay
+% % given by the filtering stage in simulink.
+% 
+% figure()
+% hold on, grid on;
+% plot(t,state.y,"color",'red')
+% plot(t,state.y0_pure,"color",'blue')
+% legend("y0 filtered","y0 pure");
+% title("(0) : comparison y0 filtered vs not filtered")
+% 
+% xlim([-0.9 simtime+0.9])
+% ylim([-0.100 0.500])
 
 %%
 % can we reconstruct y0 from y2, which is clear and not noised?
@@ -194,25 +194,25 @@ ylim([-0.100 0.500])
 % It's wrong since the black signal (y0-round) goes way to low under 0
 % wrt the red one (y0-pure).
 
-figure()
-hold on, grid minor;
-
-plot(t,state.y2,"color",'blue')
-yh = state.y2 - r2*sin(pi/2 - state.theta2);
-plot(t,yh,"color",'blue',"LineStyle",":")
-
-y1 = yh - (round(state.w) - r1).*sin(pi/2 - state.theta1);
-plot(t,y1,"color",'magenta',"LineStyle",":")
-
-y0_r = y1 - r1*sin(pi/2 - state.theta1);
-
-plot(t,y0_r,"color",'black')
-plot(t,state.y0_pure,"color",'red')
-
-legend("y2","yh","y1","y0-round","y0-pure")
-title("(1) : can we build y0 from y2?")
-
-xlim([-0.9 simtime+0.9])
+% figure()
+% hold on, grid minor;
+% 
+% plot(t,state.y2,"color",'blue')
+% yh = state.y2 - r2*sin(pi/2 - state.theta2);
+% plot(t,yh,"color",'blue',"LineStyle",":")
+% 
+% y1 = yh - (round(state.w) - r1).*sin(pi/2 - state.theta1);
+% plot(t,y1,"color",'magenta',"LineStyle",":")
+% 
+% y0_r = y1 - r1*sin(pi/2 - state.theta1);
+% 
+% plot(t,y0_r,"color",'black')
+% plot(t,state.y0_pure,"color",'red')
+% 
+% legend("y2","yh","y1","y0-round","y0-pure")
+% title("(1) : can we build y0 from y2?")
+% 
+% xlim([-0.9 simtime+0.9])
 
 %%
 
@@ -243,33 +243,50 @@ xlim([-0.9 simtime+0.9])
 
 %%
 
+% %----------------------------------------------------------------------
+% % FIGURE 5
+% % PEAK POINTS PLOT
+% % Peak points are where derivative of y is 0. 
+% % When yd == 0 (line 249) plot that point in red.
+% % Is accuracy enough?
+% 
+% figure()
+% hold on, grid on
+% title("(5) :peak points accuracy")
+% plot(t,state.y,"color",'blue')
+% 
+% flag = false; % for further uses - not used now
+% precision = 1; % if 1 = analize each time step sample
+% interval = t(2) - t(1);
+% 
+% for i=2:precision:length(t)
+%     if round(state.yd(i),1)==0
+%         % 0.005 is the step size = t(2) - t(1)
+%         m = interval*(i-1);
+%         plot(m,state.y(i),"marker","*","MarkerSize",5,"Color","r")
+%         flag = true;
+%     end
+% end
+% xlim([-1,simtime+0.9])
+% legend("y filtered","peak points")
+% % Animation stage
+
 %----------------------------------------------------------------------
-% FIGURE 5
-% PEAK POINTS PLOT
-% Peak points are where derivative of y is 0. 
-% When yd == 0 (line 249) plot that point in red.
-% Is accuracy enough?
+% FIGURE
+% This plot should demonstrate that considering the reconstructed signal
+% is good to know when we have touchdown or top event. Compare with the
+% original data.
+% A further implementation can even describe with colors the four events
 
 figure()
-hold on, grid on
-title("(5) :peak points accuracy")
-plot(t,state.y,"color",'blue')
+hold on, grid minor
 
-flag = false; % for further uses - not used now
-precision = 1; % if 1 = analize each time step sample
-interval = t(2) - t(1);
+% y0_reconstructed is in y0_filtered vector as well as y0_d_reconstructed
 
-for i=2:precision:length(t)
-    if round(state.yd(i),1)==0
-        % 0.005 is the step size = t(2) - t(1)
-        m = interval*(i-1);
-        plot(m,state.y(i),"marker","*","MarkerSize",5,"Color","r")
-        flag = true;
-    end
-end
-xlim([-1,simtime+0.9])
-legend("y filtered","peak points")
-% Animation stage
+
+title("states identification from reconstructed y0 signal");
+
+
 
 % STOP HERE TO PREVENT ANIMATION
 return

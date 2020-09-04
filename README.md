@@ -8,6 +8,11 @@ Project for Elective in Robotics- Underactuated Robots 2019-2020, Università La
 Our goal is to implement and simulate the robot model described in the following paper:
 * Raibert, “Hopping in Legged Systems-Modeling and Simulation for the Two-Dimensional One-Legged Case”, IEEE Transactions on Systems, Man, and Cybernetics 1984".
 
+## Project status
+```bash
+In progress
+```
+
 ## Running the test
 
 ```
