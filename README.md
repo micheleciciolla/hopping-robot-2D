@@ -1,7 +1,6 @@
-# hopping-robot-2D
+# Elective in Robotics project: hopping robot 2D
 
-Project for Elective in Robotics- Underactuated Robots 2019-2020, Università La Sapienza Roma
-
+Project for Elective in Robotics: [Underactuated Robots](https://www.diag.uniroma1.it/~oriolo/ur/), 2019-2020, Università Roma La Sapienza.
 <a href="https://www.dis.uniroma1.it/"><img src="http://www.dis.uniroma1.it/sites/default/files/marchio%20logo%20eng%20jpg.jpg" width="500"></a>
 
 ## Approach
