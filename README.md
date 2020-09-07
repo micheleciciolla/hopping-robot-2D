@@ -7,6 +7,8 @@ Project for Elective in Robotics: [Underactuated Robots](https://www.diag.unirom
 Our goal is to implement and simulate the robot model described in the following paper:
 * Raibert, “Hopping in Legged Systems-Modeling and Simulation for the Two-Dimensional One-Legged Case”, IEEE Transactions on Systems, Man, and Cybernetics 1984".
 
+<a href="https://www.dis.uniroma1.it/"><img src="https://www.botmag.com/wp-content/uploads/2016/11/hopping01.jpg" width="550"></a>
+
 ## Project status
 ```bash
 In progress
