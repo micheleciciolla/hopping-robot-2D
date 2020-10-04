@@ -194,25 +194,25 @@ state.yd = out.height_d;
 % It's wrong since the black signal (y0-round) goes way to low under 0
 % wrt the red one (y0-pure).
 
-% figure()
-% hold on, grid minor;
-% 
-% plot(t,state.y2,"color",'blue')
-% yh = state.y2 - r2*sin(pi/2 - state.theta2);
-% plot(t,yh,"color",'blue',"LineStyle",":")
-% 
-% y1 = yh - (round(state.w) - r1).*sin(pi/2 - state.theta1);
-% plot(t,y1,"color",'magenta',"LineStyle",":")
-% 
-% y0_r = y1 - r1*sin(pi/2 - state.theta1);
-% 
-% plot(t,y0_r,"color",'black')
-% plot(t,state.y0_pure,"color",'red')
-% 
-% legend("y2","yh","y1","y0-round","y0-pure")
-% title("(1) : can we build y0 from y2?")
-% 
-% xlim([-0.9 simtime+0.9])
+figure()
+hold on, grid minor;
+
+plot(t,state.y2,"color",'blue')
+yh = state.y2 - r2*sin(pi/2 - state.theta2);
+plot(t,yh,"color",'blue',"LineStyle",":")
+
+y1 = yh - (round(state.w) - r1).*sin(pi/2 - state.theta1);
+plot(t,y1,"color",'magenta',"LineStyle",":")
+
+y0_r = y1 - r1*sin(pi/2 - state.theta1);
+
+plot(t,y0_r,"color",'black')
+plot(t,state.y0_pure,"color",'red')
+
+legend("y2","yh","y1","y0-round","y0-pure")
+title("(1) : can we build y0 from y2?")
+
+xlim([-0.9 simtime+0.9])
 
 %%
 
