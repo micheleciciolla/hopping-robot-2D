@@ -1,3 +1,5 @@
+%% 9 ottobre
+
 clear
 pause(0.4)
 
@@ -16,16 +18,16 @@ r2=0.4; % [m]
 k0=1; % [m]
 KL=10^3; % [Nt/m]
 
-KL2=10^5; % [Nt/m]
+KL2=10^4; % [Nt/m]
 BL2=135; % [Nt-s/m]
 
 KG=10^4; % [Nt/m]
 BG=75; % [Nt-s/m]
 
 %--------------------------
-H=0.2; %[m]
-H2=0.8;
-T2_change = 10; % Time at which the height reference is changed [s]
+H=0.8; %[m]
+H2=1.2;
+T2_change = 50; % Time at which the height reference is changed [s]
 %--------------------------
 g=9.8;
 % Initial Conditions
@@ -42,7 +44,7 @@ ini_w_d=0;
 ini_x0=0;
 ini_x0_d=0;
 
-ini_y0=0.4;
+ini_y0=0.2;
 ini_y0_d=0;
 
 ini_x1=ini_x0+r1*sin(ini_theta1);
