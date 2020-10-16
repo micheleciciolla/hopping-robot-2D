@@ -1,8 +1,3 @@
-%% 9 ottobre
-
-clear
-pause(0.4)
-
 %% One-Legged Hopping Robot
 % Parameters
 
@@ -18,19 +13,21 @@ r2=0.4; % [m]
 k0=1; % [m]
 KL=10^3; % [Nt/m]
 
-KL2=10^4; % [Nt/m]
-BL2=135; % [Nt-s/m]
+KL2=10^5; % [Nt/m]
+BL2=125; % [Nt-s/m]
 
-KG=10^4; % [Nt/m]
+KG=10^3; % [Nt/m]
 BG=75; % [Nt-s/m]
 
-%--------------------------
-H=0.8; %[m]
-H2=1.2;
-T2_change = 50; % Time at which the height reference is changed [s]
-%--------------------------
+H=0.3; %[m]
+H2=0.7;
+T2_change = 15; % Time at which the height reference is changed [s]
+
+
 g=9.8;
 % Initial Conditions
+
+chi_0 = 0.07;
 
 ini_theta1=0;
 ini_theta1_d=0;
@@ -38,13 +35,13 @@ ini_theta1_d=0;
 ini_theta2=0;
 ini_theta2_d=0;
 
-ini_w=k0;
+ini_w=k0 - chi_0;
 ini_w_d=0;
 
 ini_x0=0;
 ini_x0_d=0;
 
-ini_y0=0.2;
+ini_y0=0.4;
 ini_y0_d=0;
 
 ini_x1=ini_x0+r1*sin(ini_theta1);
@@ -69,11 +66,17 @@ theta1_des=0;
 desired_energy = M1*g*(H+r1) + M2*g*(H+k0+r2);
 desired_energy2 = M1*g*(H2+r1) + M2*g*(H2+k0+r2);
 %% 
-% 
-% 
 % *SIMULINK*
 
-simtime=100; %simulation time
-SimDec=sim('model',simtime); %Execution of the simulation in Simulink
-
-fprintf("\n\nProcess Completed\n");
+simtime=30; %simulation time
+SimDec=sim('HoppingModel_Vertical',simtime); %Execution of the simulation in Simulink
+    
+% % 
+% PLOTS
+% 
+% figure(1)
+% plot(SimDec.y2.signals.values(6000:end),SimDec.y2d.signals.values(6000:end))
+% grid on
+% title('Phase Portrait for Vertical Hopping','Interpreter','latex')
+% xlabel('Height of the Body $y_2$ [m]','Interpreter','latex')
+% ylabel('Velocity of the Body $\dot{y}_2$ [m]','Interpreter','latex')
