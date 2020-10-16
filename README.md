@@ -14,6 +14,7 @@ Our goal is to implement and simulate the robot model described in the following
 ## Project status
 ```bash
 In progress
+Founded a typo in the paper at page 462, Fy = -KGy0 - BGy0_dot
 ```
 
 ## Running the test
