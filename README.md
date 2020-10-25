@@ -24,7 +24,7 @@ In progress
 ```
 
 ## Video Demo
-[![SC2 Video](./experiment.gif)]()
+[![SC2 Video](./experiment.gif)]
 
 
 ## Team
