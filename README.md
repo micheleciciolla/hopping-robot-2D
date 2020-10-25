@@ -24,9 +24,8 @@ In progress
 ```
 
 ## Video Demo
-```bash
-Missing
-```
+[![SC2 Video](./experiment.gif)]()
+
 
 ## Team
 * Michele Ciciolla <a href="https://github.com/micheleciciolla"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1024px-Octicons-mark-github.svg.png" width="30"></a>
