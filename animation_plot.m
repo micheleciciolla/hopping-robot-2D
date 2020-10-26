@@ -33,30 +33,14 @@ foot.MarkerFaceColor = '#A2142F';
 
 hip.MarkerSize = 10.0;
 
-% used to crate .gif
-% theta = 0:0.01:50;
-% y = theta.*exp(1i*theta);
-% figure();
-% h = animatedline(real(y(1)),imag(y(1)));
-% axis equal;
-% axis([-50,50,-50,50]);
-% axis off
+%--------------------------------------------------------------------------
+name = 'vertical_video.gif';
+H = 0.4;
+title_insert = 'Vertical Control';
 
 [A,map] = rgb2ind(frame2im(getframe),256);
-imwrite(A,map,'experiment.gif','LoopCount',65535,'DelayTime',0.01);
-% 
-% for k = 2:length(theta)
-%     addpoints(h,real(y(k)),imag(y(k)));
-%     drawnow
-%     if(mod(k,20)==0)
-%         [A,map] = rgb2ind(frame2im(getframe),256);
-%         imwrite(A,map,'experiment.gif','WriteMode','append','DelayTime',0.01);
-%     end
-% end
-
-
-
-
+imwrite(A,map,name,'LoopCount',65535,'DelayTime',0.01);
+%--------------------------------------------------------------------------
 
 hip.Marker = 'o';
 hip.MarkerFaceColor = '#A2142F';
@@ -74,17 +58,16 @@ des_height.Color = 'r';
 des_height.LineStyle = '--';
 des_height.MarkerSize = 2.0;
 
-
 time = x0.time;
 
 % add ground
 for i = -1:1:1
     addpoints(ground,i,0);
-    addpoints(des_height,i,.6);
+    addpoints(des_height,i,H);
 
 end
 
-title("Current Configuration"); xlabel("x - Ground"); ylabel("y - Height");
+title(title_insert); xlabel("x - Ground"); ylabel("y - Height");
 pause(0.1)
 %%
 for i = 1:20:size(time)
@@ -125,7 +108,7 @@ for i = 1:20:size(time)
     
     if mod(i,3)==0
         [A,map] = rgb2ind(frame2im(getframe),256);
-        imwrite(A,map,'experiment.gif','WriteMode','append','DelayTime',0.01);
+        imwrite(A,map,name,'WriteMode','append','DelayTime',0.01);
     end
     
 end

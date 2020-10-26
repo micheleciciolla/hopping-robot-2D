@@ -1,4 +1,4 @@
-# Elective in Robotics project: hopping robot 2D
+# A Energy Based Controller for Vertical and Horizontal motion of a 2D one-legged hopping robot
 
 ![Puppet Forge endorsement](https://img.shields.io/puppetforge/e/camptocamp/openssl?color=light%20green&label=Ubuntu%2016.04%20LTS&logo=Ubuntu)
 
