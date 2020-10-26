@@ -12,8 +12,9 @@ Our goal is to implement and simulate the robot model described in the following
 <a href="https://www.dis.uniroma1.it/"><img src="https://www.botmag.com/wp-content/uploads/2016/11/hopping01.jpg" width="400"></a>
 
 ## Project status
+Completed <a href="https://github.com/micheleciciolla/vehicles-platooning"><img src="https://www.flaticon.com/svg/static/icons/svg/214/214353.svg" width="30"></a>
+
 ```bash
-In progress
 Founded a typo in the paper at page 462, Fy = -KGy0 - BGy0_dot
 ```
 
@@ -24,7 +25,7 @@ In progress
 ```
 
 ## Video Demo
-[![SC2 Video](./experiment.gif)]
+[![SC2 Video](./docs/experiment.gif)]
 
 
 ## Team
@@ -38,6 +39,5 @@ In progress
 
 
 ## Documentation
-```bash
-Missing
-```
+You can read our final technical documentation about this project here [DOCUMENTATION](./report.pdf)
+
