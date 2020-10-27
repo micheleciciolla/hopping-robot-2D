@@ -21,11 +21,12 @@ Founded a typo in the paper at page 462, Fy = -KGy0 - BGy0_dot
 ## Running the test
 
 ```bash
-In progress
+run the init_ .m script
+animation is generated using animation.m script in utils
 ```
 
 ## Video Demo
-[![SC2 Video](./docs/experiment.gif)]
+[![SC2 Video](./docs/demo.gif)]
 
 
 ## Team
@@ -39,5 +40,5 @@ In progress
 
 
 ## Documentation
-You can read our final technical documentation about this project here [DOCUMENTATION](./report.pdf)
+You can read our final technical documentation about this project here [DOCUMENTATION](./docs/report.pdf)
 
