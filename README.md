@@ -15,7 +15,7 @@ Our goal is to implement and simulate the robot model described in the following
 Completed <a href="https://github.com/micheleciciolla/vehicles-platooning"><img src="https://www.flaticon.com/svg/static/icons/svg/214/214353.svg" width="30"></a>
 
 ```bash
-Founded a typo in the paper at page 462, Fy = -KGy0 - BGy0_dot
+Founded many typos in the paper. Contact me if you need.
 ```
 
 ## Running the test
@@ -41,4 +41,8 @@ animation is generated using animation.m script in utils
 
 ## Documentation
 You can read our final technical documentation about this project here [DOCUMENTATION](./docs/report.pdf)
+
+## References
+[1] Raibert, “Hopping in Legged Systems-Modeling and Simulation for the Two-Dimensional One-Legged Case”, IEEE Transactions on Systems, Man, and Cybernetics 1984"
+[2] Thesis : "VERTICAL CONTROL FOR AN ONE-LEGGED HOPPING ROBOT", LIJUN LI, 2008
 
