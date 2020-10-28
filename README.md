@@ -43,6 +43,6 @@ animation is generated using animation.m script in utils
 You can read our final technical documentation about this project here [DOCUMENTATION](./docs/report.pdf)
 
 ## References
-[1] Raibert, “Hopping in Legged Systems-Modeling and Simulation for the Two-Dimensional One-Legged Case”, IEEE Transactions on Systems, Man, and Cybernetics 1984"
-[2] Thesis : "VERTICAL CONTROL FOR AN ONE-LEGGED HOPPING ROBOT", LIJUN LI, 2008
+* [1] Raibert, “Hopping in Legged Systems-Modeling and Simulation for the Two-Dimensional One-Legged Case”, IEEE Transactions on Systems, Man, and Cybernetics 1984"
+* [2] Thesis : "VERTICAL CONTROL FOR AN ONE-LEGGED HOPPING ROBOT", LIJUN LI, 2008
 
